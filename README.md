@@ -23,19 +23,18 @@ Files
 
 Usage
 -----
-<dl>
-  	<dt>To run the interpreter:</dt>
-		<dd>$ racket</dd>
-		<dd>> (require "interpreter.rkt")</dd>
-		<dd>> (repl)</dd> 
-  	<dt>To run the interpreter within the interpreter:</dt>
-  		<dd>$ racket</dd>
-		<dd>> (require "interpreter.rkt")</dd>
-		<dd>> (repl)</dd>
-		<dd>INTERPRETER> (include "interpreter.rkt")</dd>
-		<dd>INTERPRETER> (repl)</dd>
-		<dd>INTERPRETER> (include "interpreter.rkt")</dd>
-		<dd>INTERPRETER> (repl)</dd>
-		<dd>...</dd>
-</dl>
+To run the interpreter:
+"""$ racket
+> (require "interpreter.rkt")
+> (repl)"""
+
+To run the interpreter within the interpreter:
+"""$ racket
+> (require "interpreter.rkt")
+> (repl)
+INTERPRETER> (include "interpreter.rkt")
+INTERPRETER> (repl)
+INTERPRETER> (include "interpreter.rkt")
+INTERPRETER> (repl)
+..."""
 
