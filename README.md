@@ -29,12 +29,12 @@ To run the interpreter:
 > (repl)"""
 
 To run the interpreter within the interpreter:
-"""$ racket
+'''$ racket
 > (require "interpreter.rkt")
 > (repl)
 INTERPRETER> (include "interpreter.rkt")
 INTERPRETER> (repl)
 INTERPRETER> (include "interpreter.rkt")
 INTERPRETER> (repl)
-..."""
+...'''
 
