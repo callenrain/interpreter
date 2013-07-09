@@ -24,12 +24,14 @@ Files
 Usage
 -----
 To run the interpreter:
-"""$ racket
+'''racket
+$ racket
 > (require "interpreter.rkt")
-> (repl)"""
+> (repl)'''
 
 To run the interpreter within the interpreter:
-'''$ racket
+'''racket
+$ racket
 > (require "interpreter.rkt")
 > (repl)
 INTERPRETER> (include "interpreter.rkt")
