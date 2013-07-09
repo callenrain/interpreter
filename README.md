@@ -1,6 +1,7 @@
 A Metacircular Racket Evaluator
 ===============================
-Justin Cosentino && Callen Rain 
+Justin Cosentino && Callen Rain  
+
 May 12, 2013
 
 Background
