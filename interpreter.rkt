@@ -1,18 +1,16 @@
 #lang racket
 
-;;
 ;;  interpreter.rkt
 ;;  Racket Interpreter
 ;;
-;;  Created by Callen Rain and Justin Cosentino on 5/15/13.
-;;
+;;  Callen Rain && Justin Cosentino 5/15/13.
 
 (require racket/mpair)   ; for mutable pairs (you will need this)
 (require racket/pretty)  ; for pretty printing (you may not need this)
 (require racket/trace)   ; for tracing (you may not need this)
 
 ;; -------------------------------------------------------------------
-;; Part 1: Environments
+;; Environments
 ;; -------------------------------------------------------------------
 
 ;; binding abstraction
@@ -82,23 +80,12 @@
  adjoin-frame extend-env binding-in-env
  lookup-variable)
 
-
-
 ;; -------------------------------------------------------------------
-;; Part 2: Evaluation and Environment Modification
+;; Evaluation and Environment Modification
 ;; -------------------------------------------------------------------
-
 
 ;; Continuing the "environment" abstraction
 ;;-------------------------------------------------------------------
-
-;; The initial definition of setup-env.
-;; We will change this later.
-;(define setup-env
-;  (lambda ()
-;    (extend-env
-;     '(null) '(())        ;bind the symbol null to '()
-;     empty-env)))
 
 
 ;; Implementing "eval"
@@ -163,14 +150,12 @@
     (cadr quoted-exp)))
 
 
-
 ;; An important helper function: tagged-list?
 ;;-------------------------------------------------------------------
 
 (define tagged-list?
   (lambda (exp tag)
     (and  (list? exp) (not (null? exp)) (equal? (car exp) tag) )))
-
 
 
 ;; Implementing "define"
@@ -215,14 +200,9 @@
   (lambda (exp tag n)
     (and  (list? exp) (not (null? exp)) (equal? (car exp) tag) (equal? (length exp) n ))))
 
-
-
 (define tagged-list-min-length-n?
   (lambda (exp tag n)
     (and  (list? exp) (not (null? exp)) (equal? (car exp) tag) (>= (length exp) n ))))
-
-;; Once you have implemented the above two functions, go back
-;; and rewrite the 'defintion?' and 'quoted?' functions to use these.
 
 
 ;; Implementing set!
@@ -252,7 +232,7 @@
     var))
 
 
-;; Extension: Quasiquotmo
+;; Quasiquote
 ;;-------------------------------------------------------------------
 
 (define text-of-quasiquotation
@@ -301,9 +281,8 @@
  )
 
 
-
 ;; -------------------------------------------------------------------
-;; Part 3: Primitive Procedure Application
+;; Primitive Procedure Application
 ;; -------------------------------------------------------------------
 
 ;; Implementing "i-apply"
@@ -453,9 +432,8 @@
 (define global-env (setup-env))
 
 
-
 ;; -------------------------------------------------------------------
-;; Part 4: Special Forms: begin, if, cond
+;; Special Forms: begin, if, cond
 ;; -------------------------------------------------------------------
 
 
@@ -571,7 +549,7 @@
 
 
 ;; -------------------------------------------------------------------
-;; Part 5: lambda and let
+;; Lambda and let
 ;; -------------------------------------------------------------------
 
 
@@ -639,7 +617,6 @@
     (cons (cons 'lambda (cons (get-vars (cadr exp)) (get-exps exp))) (get-vals (cadr exp)))))
 
 
-
 (define eval-let
   (lambda (exp env)
     (i-eval (let->lambda exp) env)))
@@ -666,7 +643,7 @@
 
 
 ;; -------------------------------------------------------------------
-;; Part 6: Meta-circularity
+;; Meta-circularity
 ;; -------------------------------------------------------------------
 
 ;; Implementing "map"
